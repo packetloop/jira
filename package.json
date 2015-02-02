@@ -1,14 +1,19 @@
 {
   "name": "jira",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
+  "preferGlobal": "true",
   "description": "JIRA + Git flow + Gitlab Integration",
   "main": "index.js",
+  "bin": {
+    "jira": "index.js"
+  },
   "dependencies": {
+    "execSync": "^1.0.2",
+    "glob": "^4.3.5"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
