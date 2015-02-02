@@ -9,7 +9,7 @@ var command = args.shift();
 
 // Pre-fill all commands to populate help
 var commands = {};
-glob.sync(path.join('lib', '*.js')).forEach(function (filename) {
+glob.sync(path.join(__dirname, 'commands', '*.js')).forEach(function (filename) {
   commands[path.basename(filename, '.js')] = require(path.resolve(filename));
 });
 
@@ -32,10 +32,10 @@ if (!commands[command]) {
 }
 
 try {
-  console.log(['OK'].concat(commands[command].apply(null, args)).join('\n    '));
+  console.log(['OK'].concat(commands[command].apply(null, args)).join('\n  '));
 } catch (e) {
   console.error(e);
-  console.log(['Usage'].concat(commands[command].help).join('\n    '));
+  console.log(['Usage'].concat(commands[command].help).join('\n  '));
   process.exit(1);
 }
 
