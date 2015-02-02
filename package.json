@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "execSync": "^1.0.2",
-    "glob": "^4.3.5"
+    "glob": "^4.3.5",
+    "lodash": "^3.0.1"
   },
   "devDependencies": {},
   "scripts": {
