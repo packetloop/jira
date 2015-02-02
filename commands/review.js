@@ -104,7 +104,7 @@ var review = function (key, group) {
 };
 
 review.help = [
-  'jira review <issue key>'
+  'jira review <issue key> [<ping group>]'
 ].join('\n');
 
 module.exports = review;
