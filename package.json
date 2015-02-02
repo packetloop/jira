@@ -1,0 +1,24 @@
+{
+  "name": "jira",
+  "private": true,
+  "version": "1.0.0",
+  "description": "JIRA + Git flow + Gitlab Integration",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/packetloop/jira.git"
+  },
+  "author": "Nik Butenko <nik@butenko.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/packetloop/jira/issues"
+  },
+  "homepage": "https://github.com/packetloop/jira"
+}
