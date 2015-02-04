@@ -40,8 +40,14 @@ jira summary AB-1234
 There is a little dynamic contextual help on available commands and their basic syntax
 
 ```bash
-23:54 $ jira
+$ jira
 Usage:
+  cache:
+    jira cache <action>
+    Available actions:
+        clear
+        size
+        path
   review:
     jira review <issue key> [<ping group>]
   start:
