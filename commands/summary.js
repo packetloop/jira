@@ -23,7 +23,7 @@ var summary = function (key) {
     throw new Error(issue.errorMessages.shift());
   }
 
-  return [issue.fields.summary];
+  return [issue.fields.summary.trim()];
 };
 
 summary.help = [
