@@ -9,9 +9,8 @@
     "jira": "index.js"
   },
   "dependencies": {
-    "execSync": "^1.0.2",
-    "glob": "^4.3.5",
-    "lodash": "^3.0.1"
+    "glob": "^6.0.4",
+    "lodash": "^4.0.0"
   },
   "devDependencies": {},
   "scripts": {

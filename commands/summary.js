@@ -1,15 +1,24 @@
-var sh = require('execSync');
+var sh = require('child_process').execSync;
 var memo = require('../lib/memoize');
 var jira = require('../lib/jira');
 
 function getIssue(key) {
-  return sh.exec(jira.curl(jira.url('/issue/' + key))).stdout;
+  var cmd = jira.curl(jira.url('/issue/' + key));
+  return sh(cmd).toString('utf8');
 }
 
-var summary = function (key) {
+var summary = function (rawKey) {
 
-  if (!key) {
+  if (!rawKey) {
     throw new Error('Issue key must be specified');
+  }
+
+  var key;
+
+  if (String(parseInt(rawKey, 10)) === rawKey) {
+    key = [process.env.JIRA_PREFIX, rawKey].join('-').toUpperCase()
+  } else {
+    key = rawKey.toUpperCase();
   }
 
   var issue;
@@ -23,7 +32,7 @@ var summary = function (key) {
     throw new Error(issue.errorMessages.shift());
   }
 
-  return [issue.fields.summary.trim()];
+  return [[key, issue.fields.summary.trim()].join(' ')];
 };
 
 summary.help = [

@@ -32,7 +32,7 @@ if (!commands[command]) {
 }
 
 try {
-  console.log(['OK'].concat(commands[command].apply(null, args)).join('\n  '));
+  console.log([].concat(commands[command].apply(null, args)).join('\n  '));
 } catch (e) {
   console.error(e);
   console.log(['Usage'].concat(commands[command].help).join('\n  '));

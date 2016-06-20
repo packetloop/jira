@@ -1,4 +1,4 @@
-var sh = require('execSync');
+var sh = require('child_process').execSync;
 var _ = require('lodash');
 
 var git = require('../lib/git');
@@ -8,13 +8,13 @@ var summary = require('./summary');
 
 
 function searchProjects(namespace) {
-  return sh.exec(gitlab.curl('GET', '/projects', {
+  return sh(gitlab.curl('GET', '/projects', {
     search: namespace, page: 1, per_page: 100
-  })).stdout;
+  })).toString('utf8');
 }
 
 function fetchUser() {
-  return sh.exec(gitlab.curl('GET', '/user', {})).stdout;
+  return sh(gitlab.curl('GET', '/user', {})).toString('utf8');
 }
 
 
@@ -79,16 +79,16 @@ var review = function (key, group) {
 
   var mr;
   try {
-    mr = sh.exec(gitlab.curl('POST', '/projects/' + id + '/merge_requests', {
+    mr = sh(gitlab.curl('POST', '/projects/' + id + '/merge_requests', {
       id: id,
       assignee_id: userId,
       source_branch: branch,
       target_branch: 'develop',
       title: [key, name].join(' - '),
       description: description
-    }));
+    })).toString('utf8');
     console.log("mr", mr);
-    mr = JSON.parse(mr.stdout);
+    mr = JSON.parse(mr);
   } catch (e) {
     console.log("e", e);
     throw new Error('Cannot create GITLAB merge request');
