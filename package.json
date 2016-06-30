@@ -1,12 +1,15 @@
 {
-  "name": "jira",
+  "name": "@packetloop/jira",
   "version": "1.0.3",
+  "publishConfig": {
+    "registry": "https://api.bintray.com/npm/arbornetworks/packetloop"
+  },
   "private": true,
-  "preferGlobal": "true",
+  "preferGlobal": true,
   "description": "JIRA + Git flow + Gitlab Integration",
   "main": "index.js",
   "bin": {
-    "jira": "index.js"
+    "packetloop-jira": "index.js"
   },
   "dependencies": {
     "glob": "^6.0.4",
