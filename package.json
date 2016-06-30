@@ -4,7 +4,6 @@
   "publishConfig": {
     "registry": "https://api.bintray.com/npm/arbornetworks/packetloop"
   },
-  "private": true,
   "preferGlobal": true,
   "description": "JIRA + Git flow + Gitlab Integration",
   "main": "index.js",
